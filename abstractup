@@ -1,0 +1,42 @@
+// Abstract class
+abstract class Car {
+    String brand = "Toyota";
+
+    abstract void startEngine();
+    abstract void stopEngine();
+
+    void showBrand() {
+        System.out.println("Car Brand: " + brand);
+    }
+}
+
+// Subclass Toyota Vios
+class ToyotaVios extends Car {
+
+    @Override
+    void startEngine() {
+        System.out.println("Toyota Celica engine started using push button.");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println("Toyota Celica engine stopped when driver stepped on brake.");
+    }
+
+    void showModel() {
+        System.out.println("Model: Toyota Celica");
+    }
+}
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new ToyotaCelica();   // Abstraction + Polymorphism
+
+        myCar.showBrand();
+        myCar.startEngine();
+        myCar.stopEngine();
+
+        // To access showModel(), cast to ToyotaVios
+        ((ToyotaVios) myCar).showModel();
+    }
+}
